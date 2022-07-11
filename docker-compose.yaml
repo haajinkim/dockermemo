@@ -1,13 +1,15 @@
 version: "3.9"
 services:
   flask:
-    build:
-      context: .
-    volumes:
-      - ./templates:/templates
+    image: khj99584266/docker-momo:latest
     ports:
-      - "5000:5000"
+      - "80:5000"
   mongo:
-    image: mongo
+    image: mongo:latest
+    volumes:
+      - mongo:/data/db/
     ports:
       - "27017:27017"
+
+volumes:
+  mongo:
